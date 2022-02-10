@@ -5,7 +5,6 @@ let usuario = '';
 let resposta = 'sim';
 let escolha = '';
 const tempo = ['manhã','tarde','noite'];
-const finais = ['final1','final2','final3','final4','finalBom']
 
 function sleep(milliseconds) {
     var start = new Date().getTime();
@@ -70,7 +69,7 @@ const pet = {
             console.log(`\n${this.nome} está cheio.`);
         }
         if(this.humor <= 0){
-            console.log(`\n${this.nome} está entediado.`);
+            console.log(`\n${this.nome} está chateado.`);
             this.saude-=0.5;
         }else if (this.humor > 2){
             console.log(`\n${this.nome} está animado.`);
@@ -89,7 +88,7 @@ const pet = {
     },
     
     brincar: function(){
-        console.log(`Vamos brincar de Jokenpô`)
+        console.log(`\nVamos brincar de Jokenpô\n`);
         //definição das variáveis
         let player = -1;
         let placar = [0,0]; //player = placar[0]; Pet = placar[1]
@@ -122,16 +121,16 @@ const pet = {
         console.log();
           
         if(player == "pedra" && pet == "papel" || player == "papel" && pet == "tesoura" || player == "tesoura" && pet == "pedra"){
-            placar[1]++
+            placar[1]++;
             console.log(`${this.nome} ganhou o jogo por ${placar[1]} a ${placar[0]}`);
         }else if(player == "pedra" && pet == "tesoura" || player == "papel" && pet == "pedra" || player == "tesoura" && pet == "papel"){
-            placar[0]++
+            placar[0]++;
             console.log(`Parabéns, você ganhou o jogo por ${placar[0]} a ${placar[1]}`);
         }else{
             console.log(`O jogo terminou empatado!`);
         }           
         
-        console.log(`Isso foi bastante divertido!`);
+        console.log(`\nIsso foi bastante divertido!\n`);
         console.log();  
         prompt(`Pressione Enter para sair.`);              
         console.clear();        
@@ -139,22 +138,24 @@ const pet = {
         this.humor++;
         this.energia--;
         this.saciedade--;
+        this.peso--;
         horario++;
         
     },
 
     exercitar: function(){
-        this.peso--;
+        this.peso-=2;
         this.energia-=2;
         this.saciedade--;
+        this.humor--;
         horario++;
-        console.log(`${this.nome} cansou.`)
+        console.log(`${this.nome} cansou.`);
     },
     
     alimentar: function(x){
         do{
-            console.log(`\nEscolha entre as opções: \n1) Maçã  2) Hambúrguer  3) Água`);
-            x = +prompt(`\nQual o número da sua escolha? `);
+            console.log(`\nEscolha entre as opções: \n\n1) Maçã  2) Hambúrguer  3) Água\n`);
+            x = +prompt(`Qual o número da sua escolha? `);
         
             if (isNaN(x) || x > 3 || x < 1 || x % 1 != 0){
                 console.log();
@@ -184,21 +185,33 @@ const pet = {
 };
 
 console.clear();
-console.log(`Olá! seja bem vindo ao pet digital`);
-usuario = prompt('\nPor favor informe o seu nome: ');
-console.log(`\n${usuario}, o seu vizinho bate na sua porta e lhe informa que terá que viajar por um final de semana. \nEle implora que você tome conta de seu pet, dizendo que é uma tarefa muito fácil, porém de muita importância.`);
+console.log(`Olá! seja bem vindo ao pet digital\n`);
+usuario = prompt('Por favor informe o seu nome: ');
+console.log(`\n${usuario}, o seu vizinho bate na sua porta e lhe informa que terá que viajar por cinco dias. \nEle implora que você tome conta de seu pet, dizendo que é uma tarefa muito fácil, porém de muita importância.`);
 
 console.log('\nVocê aceita cuidar do pet?');
 simnao();
 
 if (resposta == 'nao'){
-    console.log(`\nO seu vizinho acena com a cabeça e deixa a sua casa entristecido. Talvez você tenha se livrado de um grande problema, ou talvez tenha perdido a oportunidade de fazer uma grande amizade.`);
+    console.log(`\nO seu vizinho acena com a cabeça e deixa a sua casa entristecido. Talvez você tenha se livrado de um grande problema,\nou talvez tenha perdido a oportunidade de fazer uma grande amizade.\n`);
 }else{
     console.log();
-    pet.nome = prompt('\nDê um apelido para o pet: ');
-    console.log(`\nPara cuidar de ${pet.nome} você precisa escolher atividades para fazer com ele(a).\nCada atividade vai afetar seus atributos e consumir tempo. Você deve garantir que ${pet.nome} esteja bem ao final de 5 dias.`)
-    prompt(`\nPressione enter para continuar.`)
+    pet.nome = prompt('Dê um apelido para o pet: ');
+    console.log(`\nPara cuidar de ${pet.nome} você precisa escolher atividades para fazer com ele(a).\nCada atividade vai afetar seus atributos e consumir tempo. Você deve garantir que ${pet.nome} esteja bem ao final de 5 dias.\n`)
+    prompt(`Pressione enter para continuar.`)
 }
+
+const finais = [
+    `   Você acorda na manhã do sexto dia e vai checar como ${pet.nome} está. Você encontra ${pet.nome} na sua caminha mas ele não está se
+    mexendo! Seu vizinho chega no pior momento como se pressentisse o ocorrido e ao checar ${pet.nome}, te escorraça da casa te chamando
+    de assassino!`,
+    `    Você recebe seu vizinho de volta a sua casa na manhã do sexto dia e percebe que ${pet.nome} está sem comida, a algum tempo.
+    ${pet.nome} vem correndo encontrar o dono com cara de desespero! Como você pode ter esquecido de algo tão básico?`,
+    `    Seu vizinho te acorda na manhã do sexto dia e diz com desdém que a sua preguiça deve ter passado para ${pet.nome}. Apontando
+    para ${pet.nome} ele mostra como ele engordou, está uma bola!`,
+    `    Você acorda na mãnha seguinte e ${pet.nome} está muito triste, ele ficou muito tempo longe do seu dono e não brincou o suficiente
+    para ficar com um nivel de humor bom, seu vizinho ao chegar fica chateado por você não cuidar bem de ${pet.nome} e fica furioso com você!`,
+    `    Parabéns! chegamos ao final dessa aventura com sucesso. ${pet.nome} está ótimo e agora você tem um novo amigo.`];
 
 while (resposta == "sim") {
 
@@ -206,9 +219,16 @@ while (resposta == "sim") {
         sleep(2000);
         console.clear();
         pet.aviso();
-        console.log(`Dia ${pet.idade}. ${tempo[Math.floor(horario)]}.`);
+        console.log(`\nDia ${pet.idade}. ${tempo[Math.floor(horario)]}.\n`);
         
-        escolha = prompt(`\nQual atividade você deseja fazer? Alimentar, medicar, exercitar, dormir ou brincar? `).toLowerCase().trim();
+        do{
+            escolha = prompt(`Qual atividade você deseja fazer? Alimentar, medicar, exercitar, dormir ou brincar? `).toLowerCase().trim();
+            if(escolha != 'alimentar' && escolha != 'medicar' && escolha != 'exercitar' && escolha != 'dormir' && escolha != 'brincar'){
+                console.log(`\nResposta inválida!\n`);
+            }
+
+        }while(escolha != 'alimentar' && escolha != 'medicar' && escolha != 'exercitar' && escolha != 'dormir' && escolha != 'brincar');
+        
         console.log();
         if (escolha == 'dormir'){
             pet.dormir();
@@ -249,4 +269,4 @@ while (resposta == "sim") {
     pet.idade = 1;
     pet.humor = 2;
     pet.peso = 1;
-}
+};
