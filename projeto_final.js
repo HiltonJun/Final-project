@@ -1,10 +1,13 @@
-const prompt = require('prompt-sync')();
+import {dependencies} from './package.json/'
 
 let horario = 0;
 let usuario = '';
 let resposta = 'sim';
 let escolha = '';
 const tempo = ['manhã','tarde','noite'];
+import {pedra} from './pedra.js';
+import {papel} from './papel.js';
+import {tesoura} from './tesoura.js';
 
 function sleep(milliseconds) {
     var start = new Date().getTime();
@@ -92,6 +95,7 @@ const pet = {
         //definição das variáveis
         let player = -1;
         let placar = [0,0]; //player = placar[0]; Pet = placar[1]
+        const figuras = [pedra(),papel(),tesoura()];
         const options = ['pedra', 'papel', 'tesoura'];
           
         prompt(`Pressione Enter para continuar.`);
@@ -118,6 +122,7 @@ const pet = {
 
         //calculo do resultado
         console.log(`Você escolheu "${player}", o ${this.nome} escolheu "${pet}".`);
+        console.log(figuras[playerIndex]);
         console.log();
           
         if(player == "pedra" && pet == "papel" || player == "papel" && pet == "tesoura" || player == "tesoura" && pet == "pedra"){

@@ -1,4 +1,12 @@
-function maca(){
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if (new Date().getTime() - start > milliseconds) {
+      break;
+    }
+  }
+}
+export function maca(){
 console.log(`
                           ▓▓██████████              
                         ▓▓░░░░░░▒▒▓▓██              
@@ -88,3 +96,4 @@ console.log(`
 
 `);
 };
+maca();
