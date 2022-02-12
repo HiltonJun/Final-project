@@ -1,13 +1,23 @@
-import {dependencies} from './package.json/'
 
+import promptSync from 'prompt-sync';
+const prompt = promptSync();
 let horario = 0;
 let usuario = '';
 let resposta = 'sim';
 let escolha = '';
 const tempo = ['manhã','tarde','noite'];
-import {pedra} from './pedra.js';
-import {papel} from './papel.js';
-import {tesoura} from './tesoura.js';
+import pedra from './modules/pedra.mjs';
+import papel from './modules/papel.mjs';
+import tesoura from './modules/tesoura.mjs';
+import burger from './modules/burger.mjs';
+import dormindo from './modules/dormindo.mjs';
+import exercicio from './modules/exercicio.mjs';
+import maca from './modules/maca.mjs';
+import medicamento from './modules/medicamento.mjs';
+import pao from './modules/pao.mjs';
+import triste from './modules/triste.mjs';
+import feliz from './modules/feliz.mjs';
+
 
 function sleep(milliseconds) {
     var start = new Date().getTime();
@@ -43,7 +53,7 @@ const pet = {
         this.idade++ ;
         this.saciedade--;
         this.peso+= 0.5;
-        console.log('ZZZzzzz...');
+        dormindo();
         if(horario == 1){
             this.energia+=2;
         }else if(horario == 2){
@@ -84,6 +94,7 @@ const pet = {
 
     medicar: function(){
         this.saude = 2;
+        medicamento();
         console.log(`\n${this.nome} está curado :)`);
         this.humor--;
         horario++;
@@ -95,7 +106,6 @@ const pet = {
         //definição das variáveis
         let player = -1;
         let placar = [0,0]; //player = placar[0]; Pet = placar[1]
-        const figuras = [pedra(),papel(),tesoura()];
         const options = ['pedra', 'papel', 'tesoura'];
           
         prompt(`Pressione Enter para continuar.`);
@@ -119,18 +129,42 @@ const pet = {
         //escolha do pet
         let petIndex = Math.floor(Math.random()*options.length);
         let pet = options[petIndex];
-
+        
         //calculo do resultado
-        console.log(`Você escolheu "${player}", o ${this.nome} escolheu "${pet}".`);
-        console.log(figuras[playerIndex]);
+        if (player == "pedra"){
+            console.log(`Você escolheu Pedra.\n`);
+            pedra();
+        }else if (player == "papel"){
+            console.log(`Você escolheu Papel.\n`);
+            papel();
+        }else if (player == "tesoura"){
+            console.log(`Você escolheu Tesoura.\n`);
+            tesoura();
+        }
+        sleep(3000);
+        console.clear();
+        if (pet == "pedra"){
+            console.log(`${this.nome} escolheu Pedra.\n`);
+            pedra();
+        }else if (pet == "papel"){
+            console.log(`${this.nome} escolheu Papel.\n`);
+            papel();
+        }else if (pet == "tesoura"){
+            console.log(`${this.nome} escolheu Tesoura.\n`);
+            tesoura();
+        }
+        sleep(3000);
+        console.clear();
         console.log();
           
         if(player == "pedra" && pet == "papel" || player == "papel" && pet == "tesoura" || player == "tesoura" && pet == "pedra"){
             placar[1]++;
             console.log(`${this.nome} ganhou o jogo por ${placar[1]} a ${placar[0]}`);
+            feliz();
         }else if(player == "pedra" && pet == "tesoura" || player == "papel" && pet == "pedra" || player == "tesoura" && pet == "papel"){
             placar[0]++;
             console.log(`Parabéns, você ganhou o jogo por ${placar[0]} a ${placar[1]}`);
+            triste();
         }else{
             console.log(`O jogo terminou empatado!`);
         }           
@@ -154,12 +188,13 @@ const pet = {
         this.saciedade--;
         this.humor--;
         horario++;
+        exercicio();
         console.log(`${this.nome} cansou.`);
     },
     
     alimentar: function(x){
         do{
-            console.log(`\nEscolha entre as opções: \n\n1) Maçã  2) Hambúrguer  3) Água\n`);
+            console.log(`\nEscolha entre as opções: \n\n1) Maçã  2) Hambúrguer  3) Pão\n`);
             x = +prompt(`Qual o número da sua escolha? `);
         
             if (isNaN(x) || x > 3 || x < 1 || x % 1 != 0){
@@ -176,14 +211,17 @@ const pet = {
             this.saude++;
             this.peso++;
             this.energia+=2;
+            maca();
         }else if (x == 2){
             this.saciedade += 2;
             this.humor++;
             this.peso+= 2
             this.saude--;
+            burger();
         }else{
             this.humor--;
             this.saude--;
+            pao();
         }
         horario++;
     },

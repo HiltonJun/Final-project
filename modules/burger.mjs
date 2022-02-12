@@ -7,7 +7,7 @@ function sleep(milliseconds) {
     }
   }
 }
-export function burger(){
+export default function burger(){
     console.log(`
         ████████████████████        
       ██                    ██      
@@ -62,4 +62,3 @@ export function burger(){
     ████████████`);
     sleep(500);
 };
-burger();

@@ -1,4 +1,4 @@
-export function tesoura(){
+export default function tesoura(){
     console.log(`
         ████          ████  
       ▓▓░░░░▓▓      ▓▓░░░░▓▓
@@ -21,5 +21,5 @@ export function tesoura(){
   ██░░░░░░░░░░░░░░░░░░░░██    
    ██░░░░░░░░░░░░░░░░░░██      
     ██░░░░░░░░░░░░░░██        
-    ██░░░░░░░░░░░░░░██`)
+    ██░░░░░░░░░░░░░░██`);
 };

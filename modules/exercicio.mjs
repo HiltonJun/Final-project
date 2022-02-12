@@ -6,7 +6,7 @@ function sleep(milliseconds) {
       }
     }
 }
-export function exercicio(){
+export default function exercicio(){
     console.log(`
                                     █   █
         ██                  ██     █   █            ██       
@@ -111,4 +111,3 @@ export function exercicio(){
     ██░░░░██       ██░░░░██        ██░░░░██    ██░░░░██
       ████           ████            ████        ████`);
 };
-exercicio();

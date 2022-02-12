@@ -1,4 +1,4 @@
-export function pedra(){
+export default function pedra(){
     console.log(`
               ▓▓▓▓  ▓▓▓▓  ████          
         ██████░░░░██░░░░██░░░░██         

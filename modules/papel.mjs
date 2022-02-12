@@ -1,4 +1,4 @@
-export function papel(){
+export default function papel(){
     console.log(`                                                                          
               ████                     
         ██▓▓▓▓░░░░▓▓▓▓██               
@@ -20,6 +20,5 @@ export function papel(){
  ██░░░░░░░░░░░░░░░░░░░░██            
   ██░░░░░░░░░░░░░░░░░░██              
     ██░░░░░░░░░░░░░░██                      
-    ██░░░░░░░░░░░░░░██`)
+    ██░░░░░░░░░░░░░░██`);
 };
-papel();

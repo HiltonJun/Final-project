@@ -6,7 +6,7 @@ function sleep(milliseconds) {
     }
   }
 }
-export function maca(){
+export default function maca(){
 console.log(`
                           ▓▓██████████              
                         ▓▓░░░░░░▒▒▓▓██              
@@ -96,4 +96,3 @@ console.log(`
 
 `);
 };
-maca();
