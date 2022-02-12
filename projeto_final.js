@@ -19,6 +19,7 @@ import triste from './modules/triste.mjs';
 import feliz from './modules/feliz.mjs';
 import morto from './modules/morto.mjs';
 import faminto from './modules/faminto.mjs';
+import gordo from './modules/gordo.mjs';
 
 
 function sleep(milliseconds) {
