@@ -17,6 +17,8 @@ import medicamento from './modules/medicamento.mjs';
 import pao from './modules/pao.mjs';
 import triste from './modules/triste.mjs';
 import feliz from './modules/feliz.mjs';
+import morto from './modules/morto.mjs';
+import faminto from './modules/faminto.mjs';
 
 
 function sleep(milliseconds) {
@@ -292,14 +294,19 @@ while (resposta == "sim") {
     }
     console.clear();
     if (pet.saude <= 0){
+        morto();
         console.log(finais[0]);
     }else if(pet.saciedade <= 0){
+        faminto();
         console.log(finais[1]);
     }else if(pet.peso > 5){
+        gordo();
         console.log(finais[2]);
     }else if (pet.humor <= 0){
+        triste();
         console.log(finais[3]);
     }else{
+        feliz();
         console.log(finais[4]);
     }
     
