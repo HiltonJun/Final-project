@@ -8,6 +8,7 @@ function sleep(milliseconds) {
 }
 export default function medicamento(){
     console.log(`
+    
         ██                  ██                            
       ██▒▒██              ██▒▒██     ___
       ██░░██              ██░░██    _//                      
@@ -27,6 +28,7 @@ export default function medicamento(){
     sleep(500);
     console.clear();
     console.log(`
+
         ██                  ██                            
       ██▒▒██              ██▒▒██ 
       ██░░██              ██░░██    ___                      
@@ -45,7 +47,8 @@ export default function medicamento(){
     ████████████████████████████████████████████████`);
     sleep(500);
     console.clear();
-    console.log(`                      ___
+    console.log(`
+                                       ___
         ██                  ██        _//                    
       ██▒▒██              ██▒▒██     /  /
       ██░░██              ██░░██    /  /                      

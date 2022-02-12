@@ -1,4 +1,3 @@
-
 import promptSync from 'prompt-sync';
 const prompt = promptSync();
 let horario = 0;
@@ -20,7 +19,6 @@ import feliz from './modules/feliz.mjs';
 import morto from './modules/morto.mjs';
 import faminto from './modules/faminto.mjs';
 import gordo from './modules/gordo.mjs';
-
 
 function sleep(milliseconds) {
     var start = new Date().getTime();

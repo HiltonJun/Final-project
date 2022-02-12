@@ -27,7 +27,7 @@ export default function feliz(){
     ██░░░░██       ██░░░░██        ██░░░░██    ██░░░░██
       ████           ████            ████        ████`);
 
-    sleep(500);
+    sleep(2000);
     console.clear();
     console.log(`
                                          
@@ -93,6 +93,4 @@ export default function feliz(){
     ██░░░░██       ██░░░░██        ██░░░░██    ██░░░░██
       ████           ████            ████        ████`);
       
-      sleep(1500);
-      console.clear();
 };

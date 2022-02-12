@@ -60,5 +60,4 @@ export default function burger(){
   █████████  
   ██       ██  
     ████████████`);
-    sleep(500);
 };
