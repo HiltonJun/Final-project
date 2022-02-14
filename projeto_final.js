@@ -1,10 +1,13 @@
+//Importação do prompt
 import promptSync from 'prompt-sync';
 const prompt = promptSync();
+//Definição de variáveis
 let horario = 0;
 let usuario = '';
 let resposta = 'sim';
 let escolha = '';
 const tempo = ['manhã','tarde','noite'];
+//Importação de modulos da animação
 import pedra from './modules/pedra.mjs';
 import papel from './modules/papel.mjs';
 import tesoura from './modules/tesoura.mjs';
@@ -19,7 +22,7 @@ import feliz from './modules/feliz.mjs';
 import morto from './modules/morto.mjs';
 import faminto from './modules/faminto.mjs';
 import gordo from './modules/gordo.mjs';
-
+//Função para adicionar espera
 function sleep(milliseconds) {
     var start = new Date().getTime();
     for (var i = 0; i < 1e7; i++) {
@@ -28,7 +31,7 @@ function sleep(milliseconds) {
       }
     }
 }
-
+//Função para pergunta de sim ou não
 function simnao(){
     do{
         console.log();
@@ -38,7 +41,7 @@ function simnao(){
         }
     }while (resposta != "sim" && resposta != "nao");
 }
-
+//Objeto pet com seus estatus e métodos
 const pet = {
     nome: 'pet',
     energia: 2,
@@ -48,7 +51,7 @@ const pet = {
     peso: 1,
     humor: 2,
     
-
+//Método da ação de por para dormir
     dormir: function(){
         this.energia++;
         this.idade++ ;
@@ -62,7 +65,7 @@ const pet = {
         }
         horario = 0;
     },
-
+//Método de avisos de estatus críticos
     aviso: function(){
         if(this.energia <= 0){
             console.log(`\n${this.nome} está muito cansado.`);
@@ -92,7 +95,7 @@ const pet = {
             console.log(`\n${this.nome} está engordando.`);
         }  
     },
-
+    // método para medicar
     medicar: function(){
         this.saude = 2;
         medicamento();
@@ -101,7 +104,7 @@ const pet = {
         horario++;
               
     },
-    
+    // método com o jogo brincar - jokenpô
     brincar: function(){
         console.log(`\nVamos brincar de Jokenpô\n`);
         //definição das variáveis
@@ -157,7 +160,7 @@ const pet = {
         sleep(3000);
         console.clear();
         console.log();
-          
+        //Resultado do jogo
         if(player == "pedra" && pet == "papel" || player == "papel" && pet == "tesoura" || player == "tesoura" && pet == "pedra"){
             placar[1]++;
             console.log(`${this.nome} ganhou o jogo por ${placar[1]} a ${placar[0]}`);
@@ -182,7 +185,7 @@ const pet = {
         horario++;
         
     },
-
+//Método para exercitar o pet
     exercitar: function(){
         this.peso-=2;
         this.energia-=2;
@@ -192,7 +195,7 @@ const pet = {
         exercicio();
         console.log(`${this.nome} cansou.`);
     },
-    
+//Método para alimentar o pet    
     alimentar: function(x){
         do{
             console.log(`\nEscolha entre as opções: \n\n1) Maçã  2) Hambúrguer  3) Pão\n`);
@@ -227,12 +230,12 @@ const pet = {
         horario++;
     },
 };
-
+//Início do jogo com frase introdutória
 console.clear();
 console.log(`Olá! seja bem vindo ao pet digital\n`);
 usuario = prompt('Por favor informe o seu nome: ');
 console.log(`\n${usuario}, o seu vizinho bate na sua porta e lhe informa que terá que viajar por cinco dias. \nEle implora que você tome conta de seu pet, dizendo que é uma tarefa muito fácil, porém de muita importância.`);
-
+//Primeira escolha com final opcional
 console.log('\nVocê aceita cuidar do pet?');
 simnao();
 
@@ -244,7 +247,7 @@ if (resposta == 'nao'){
     console.log(`\nPara cuidar de ${pet.nome} você precisa escolher atividades para fazer com ele(a).\nCada atividade vai afetar seus atributos e consumir tempo. Você deve garantir que ${pet.nome} esteja bem ao final de 5 dias.\n`)
     prompt(`Pressione enter para continuar.`)
 }
-
+//Lista de finais
 const finais = [
     `   Você acorda na manhã do sexto dia e vai checar como ${pet.nome} está. Você encontra ${pet.nome} na sua caminha mas ele não está se
     mexendo! Seu vizinho chega no pior momento como se pressentisse o ocorrido e ao checar ${pet.nome}, te escorraça da casa te chamando
@@ -257,8 +260,9 @@ const finais = [
     para ficar com um nivel de humor bom, seu vizinho ao chegar fica chateado por você não cuidar bem de ${pet.nome} e fica furioso com você!`,
     `    Parabéns! chegamos ao final dessa aventura com sucesso. ${pet.nome} está ótimo e agora você tem um novo amigo.`];
 
+//Laço para jogar novamente    
 while (resposta == "sim") {
-
+    //Laço para contagem do tempo
     for(pet.idade = 1; pet.idade < 6;){
         sleep(2000);
         console.clear();
@@ -291,6 +295,7 @@ while (resposta == "sim") {
         }
         
     }
+//Avaliação dos estatus do pet para definir qual foi o final atingido   
     console.clear();
     if (pet.saude <= 0){
         morto();
@@ -308,10 +313,10 @@ while (resposta == "sim") {
         feliz();
         console.log(finais[4]);
     }
-    
+//Pergunta para jogar novamente    
     console.log("\nQuer jogar novamente?");
     simnao();
-
+//Reset de valores das chaves de estatus do pet
     pet.energia = 2;
     pet.saciedade = 2;
     pet.saude = 2;
