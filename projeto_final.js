@@ -47,14 +47,14 @@ const pet = {
     energia: 2,
     saude: 2,
     saciedade: 2,
-    idade: 1,
+    dias: 1,
     peso: 1,
     humor: 2,
     
 //Método da ação de por para dormir
     dormir: function(){
         this.energia++;
-        this.idade++ ;
+        this.dias++ ;
         this.saciedade--;
         this.peso+= 0.5;
         dormindo();
@@ -70,7 +70,7 @@ const pet = {
         if(this.energia <= 0){
             console.log(`\n${this.nome} está muito cansado.`);
             this.saude-=0.5;
-            this.ssaciedade-=0.5;
+            this.saciedade-=0.5;
         }else if (this.energia > 3){
             console.log(`\n${this.nome} está enérgico.`);
         }
@@ -263,11 +263,11 @@ const finais = [
 //Laço para jogar novamente    
 while (resposta == "sim") {
     //Laço para contagem do tempo
-    for(pet.idade = 1; pet.idade < 6;){
+    for(pet.dias = 1; pet.dias < 6;){
         sleep(2000);
         console.clear();
         pet.aviso();
-        console.log(`\nDia ${pet.idade}. ${tempo[Math.floor(horario)]}.\n`);
+        console.log(`\nDia ${pet.dias}. ${tempo[Math.floor(horario)]}.\n`);
         
         do{
             escolha = prompt(`Qual atividade você deseja fazer? Alimentar, medicar, exercitar, dormir ou brincar? `).toLowerCase().trim();
@@ -291,7 +291,7 @@ while (resposta == "sim") {
         }
         if(horario > 2){
             horario = 0;
-            pet.idade++;
+            pet.dias++;
         }
         
     }
@@ -320,7 +320,7 @@ while (resposta == "sim") {
     pet.energia = 2;
     pet.saciedade = 2;
     pet.saude = 2;
-    pet.idade = 1;
+    pet.dias = 1;
     pet.humor = 2;
     pet.peso = 1;
 };
